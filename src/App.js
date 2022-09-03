@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Modal from "react-modal";
+import { fetchTodos } from "./api";
+import ToggleSwitch from "./components/ToggleSwitch/ToggleSwitch";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    // for fetchin todos from server
+    fetchTodos().then((data) => setTodos(data));
+  }, []);
+
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar setTheme={setTheme} theme={theme} />
+      <div className={`App ${theme}`}></div>
+    </>
   );
 }
 
