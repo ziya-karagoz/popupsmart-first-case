@@ -3,10 +3,10 @@ import "./navbar.css";
 
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-export const Navbar = ({ setTheme, theme }) => {
+export const Navbar = ({ userName, setTheme }) => {
   return (
-    <nav className={`navbar ${theme}`}>
-      <h1 href='#'>Ziya</h1>
+    <nav className='navbar'>
+      <h1 href='#'>{userName != "null" ? userName : ""}</h1>
       <div className='toggle-btn'>
         <ToggleSwitch label={"Theme"} setTheme={setTheme} />
       </div>

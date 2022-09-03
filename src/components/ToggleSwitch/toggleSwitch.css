@@ -15,7 +15,6 @@
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid #bbb;
   border-radius: 20px;
 }
 .inner {

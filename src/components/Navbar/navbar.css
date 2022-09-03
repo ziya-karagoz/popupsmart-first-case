@@ -8,6 +8,11 @@
 }
 .navbar h1 {
   margin-left: 20px;
+  background: -webkit-linear-gradient(violet, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 .toggle-btn {
   margin-right: 20px;
