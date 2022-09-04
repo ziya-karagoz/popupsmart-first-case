@@ -10,6 +10,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 .edit-todo-form button {
   width: 100%;
   padding: 0.3rem 0;
@@ -20,4 +21,40 @@
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.edit-input label {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+.edit-input input {
+  display: grid;
+  place-content: center;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 3px solid currentColor;
+  border-radius: 0.15em;
+}
+
+.edit-input input::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #4e9591;
+}
+
+.edit-input input:checked::before {
+  transform: scale(1);
 }

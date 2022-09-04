@@ -77,14 +77,16 @@ export const EditTodoModal = ({ todo, refetchTodos }) => {
             defaultValue={todo.content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <div>
-            <input
-              type='checkbox'
-              name='completedControl'
-              onChange={(e) => setCompleted(e.target.checked)}
-              defaultChecked={todo.isCompleted}
-            />{" "}
-            <label htmlFor='completedControl'>I have completed this task</label>
+          <div className='edit-input'>
+            <label htmlFor='completedControl'>
+              <input
+                type='checkbox'
+                name='completedControl'
+                onChange={(e) => setCompleted(e.target.checked)}
+                defaultChecked={todo.isCompleted}
+              />{" "}
+              I have completed this task
+            </label>
           </div>
           <button
             onClick={(e) => {
