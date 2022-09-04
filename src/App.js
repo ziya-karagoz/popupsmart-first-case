@@ -28,7 +28,7 @@ function App() {
   );
 
   useEffect(() => {
-    localStorage.setItem("name", null);
+    //localStorage.setItem("name", null);
   }, []);
 
   if (isLoading) {
