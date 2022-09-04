@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { deleteTodo } from "../../api";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { Loading } from "../Loading/Loading";
+import { AiFillDelete } from "react-icons/ai";
+import { EditTodoModal } from "../TodoEditSession/EditTodoModal";
 export const CompletedTodoList = ({ list, refetchTodos }) => {
   const handleDeleteTodoBtn = (e, id) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ export const CompletedTodoList = ({ list, refetchTodos }) => {
   return (
     <div className='todo-container'>
       <h1>
-        Completed
+        Todos
         <hr />
       </h1>
       <div className='todo-list'>
@@ -29,9 +29,7 @@ export const CompletedTodoList = ({ list, refetchTodos }) => {
                   <button onClick={(e) => handleDeleteTodoBtn(e, todo.id)}>
                     <AiFillDelete size={25} color={"#4e9591"} />
                   </button>
-                  <button onClick={(e) => e.preventDefault()}>
-                    <AiFillEdit size={25} color={"#4e9591"} />
-                  </button>
+                  <EditTodoModal refetchTodos={refetchTodos} todo={todo} />
                 </form>
               </div>
             </div>

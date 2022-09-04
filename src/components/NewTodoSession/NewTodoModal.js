@@ -3,7 +3,7 @@ import "./newTodoModal.css";
 
 import Modal from "react-modal";
 import { AiFillFileAdd } from "react-icons/ai";
-import { addTodo, fetchTodos } from "../../api";
+import { addTodo } from "../../api";
 Modal.setAppElement("#root");
 const customStyles = {
   overlay: {
@@ -35,6 +35,12 @@ export const NewTodoModal = ({ refetchTodos }) => {
 
   const handleAddTodoBtn = (e) => {
     e.preventDefault();
+    var text = document.getElementById("requiredArea").value;
+    if (text.length < 3) {
+      alert("Your todo must be at least 3 characters long!");
+      return false;
+    }
+
     const newTodo = {
       content: content,
     };
@@ -55,14 +61,16 @@ export const NewTodoModal = ({ refetchTodos }) => {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel='Example Modal'
       >
         <form className='add-todo-form'>
           <label htmlFor='todoContent'>Enter Todo...</label>
           <textarea
+            id='requiredArea'
             type='text'
             name='todoContent'
             placeholder='Example: Do homework'
+            required
+            title='3 characters minimum'
             onChange={(e) => setContent(e.target.value)}
           />
           <button onClick={handleAddTodoBtn}>Save</button>

@@ -1,0 +1,23 @@
+.edit-todo-form > * {
+  margin: 1rem 0;
+}
+.edit-todo-form label {
+  font-size: 1.5rem;
+}
+.edit-todo-form textarea {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.edit-todo-form button {
+  width: 100%;
+  padding: 0.3rem 0;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -14,10 +14,6 @@ export const useTodosData = (onSuccess, onError) => {
     refetchOnMount: true,
     refetchOnWindowFocus: true,
     select: (data) => {
-      console.log(
-        data.filter((todo) => !todo.isCompleted),
-        data.filter((todo) => todo.isCompleted)
-      );
       return [
         data.filter((todo) => !todo.isCompleted),
         data.filter((todo) => todo.isCompleted),

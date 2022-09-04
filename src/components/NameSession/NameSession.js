@@ -41,7 +41,6 @@ function NameSession({ name }) {
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
-          contentLabel='Example Modal'
         >
           <form className='name-form'>
             <label htmlFor='nameInput'>Your Name</label>

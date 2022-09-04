@@ -7,7 +7,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import NameSession from "./components/NameSession/NameSession";
 import { TodoList } from "./components/TodoLists/TodoList";
 import { CompletedTodoList } from "./components/TodoLists/Todolist.completed";
-import { NewTodoModal } from "./components/GettingTodoSession/NewTodoModal";
+import { NewTodoModal } from "./components/NewTodoSession/NewTodoModal";
 import { Loading } from "./components/Loading/Loading";
 
 function App() {
@@ -16,12 +16,11 @@ function App() {
   const [name, setName] = useState(localStorage.getItem("name"));
 
   const onSuccess = (data) => {
-    console.log("Perform side effect after data fetching", data);
+    // console.log("Perform side effect after data fetching", data);
   };
 
-  // React Query On Error Handler
   const onError = (err) => {
-    console.log("Perform side effect after encountering error", err);
+    // console.log("Perform side effect after encountering error", err);
   };
   const { data, isError, isLoading, refetch } = useTodosData(
     onSuccess,
