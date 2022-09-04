@@ -11,6 +11,7 @@ const ToggleSwitch = ({ label, setTheme }) => {
     } else {
     }
   };
+  //
   return (
     <div className='container-toggle-switch'>
       <div className='toggle-switch'>
