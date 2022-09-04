@@ -23,8 +23,8 @@
   margin-left: -100%;
   transition: margin 0.3s ease-in 0s;
 }
-.inner:before,
-.inner:after {
+.inner::before,
+.inner::after {
   float: left;
   width: 50%;
   height: 36px;
@@ -34,13 +34,13 @@
   font-weight: bold;
   box-sizing: border-box;
 }
-.inner:before {
+.inner::before {
   content: "";
   padding-left: 10px;
   background-color: #1f1f1e;
   color: #fff;
 }
-.inner:after {
+.inner::after {
   content: "";
   padding-right: 10px;
   background-color: #fff;
