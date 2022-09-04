@@ -13,7 +13,7 @@ import { Loading } from "./components/Loading/Loading";
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  const [name, setName] = useState(localStorage.getItem("name"));
+  const [name, setName] = useState(localStorage.getItem("name") || "null");
 
   const onSuccess = (data) => {
     // console.log("Perform side effect after data fetching", data);
@@ -44,7 +44,6 @@ function App() {
         <TodoList list={data[0]} refetchTodos={refetch} />
         <CompletedTodoList refetchTodos={refetch} list={data[1]} />
       </div>
-      <ReactQueryDevtools position='bottom-left' />
     </>
   );
 }
