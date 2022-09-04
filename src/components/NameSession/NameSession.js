@@ -18,7 +18,7 @@ const customStyles = {
   },
 };
 
-function NameSession({ name }) {
+function NameSession({ name, setName }) {
   const [modalIsOpen, setIsOpen] = React.useState(true);
   let tempName;
 
@@ -52,8 +52,11 @@ function NameSession({ name }) {
               onChange={(e) => (tempName = e.target.value)}
             />
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                setName(tempName);
                 localStorage.setItem("name", tempName);
+                closeModal();
               }}
             >
               Save

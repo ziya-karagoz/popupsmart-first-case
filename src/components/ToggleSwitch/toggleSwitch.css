@@ -33,7 +33,6 @@
   color: #fff;
   font-weight: bold;
   box-sizing: border-box;
-  background-color: #fff;
 }
 .inner::before {
   content: "";

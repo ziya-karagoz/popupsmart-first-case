@@ -23,7 +23,7 @@ const ToggleSwitch = ({ label, setTheme }) => {
         <label className='label' htmlFor={label}>
           <span className='inner' />
           <span className='switch'>
-            {value === "dark" ? (
+            {value !== "light" ? (
               <BsFillMoonFill
                 style={{
                   color: "black",
