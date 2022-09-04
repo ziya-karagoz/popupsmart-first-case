@@ -3,13 +3,14 @@ import "./toggleSwitch.css";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 const ToggleSwitch = ({ label, setTheme }) => {
   const value = localStorage.getItem("theme");
+  useEffect(() => {
+    localStorage.setItem("theme", value === "light" ? "dark" : "light");
+    setTheme(value === "light" ? "dark" : "light");
+  }, []);
 
   const handleThemeButton = () => {
     localStorage.setItem("theme", value === "light" ? "dark" : "light");
     setTheme(value === "light" ? "dark" : "light");
-    if (value === "light") {
-    } else {
-    }
   };
   //
   return (
