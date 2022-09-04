@@ -43,7 +43,7 @@
 .inner::after {
   content: "";
   padding-right: 10px;
-  background-color: #1f1f1f;
+  background-color: #1f1f1e;
   color: #fff;
   text-align: right;
 }
