@@ -37,13 +37,13 @@
 .inner::before {
   content: "";
   padding-left: 10px;
-  background-color: #1f1f1e;
+  background-color: #fff;
   color: #fff;
 }
 .inner::after {
   content: "";
   padding-right: 10px;
-  background-color: #fff;
+  background-color: #1f1f1f;
   color: #fff;
   text-align: right;
 }
