@@ -12,7 +12,7 @@ const ToggleSwitch = ({ label, setTheme }) => {
     localStorage.setItem("theme", value === "light" ? "dark" : "light");
     setTheme(value === "light" ? "dark" : "light");
   };
-  //
+
   return (
     <div className='container-toggle-switch'>
       <div className='toggle-switch'>
