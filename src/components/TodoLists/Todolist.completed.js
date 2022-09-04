@@ -16,7 +16,7 @@ export const CompletedTodoList = ({ list, refetchTodos }) => {
   return (
     <div className='todo-container'>
       <h1>
-        Todos
+        Completed
         <hr />
       </h1>
       <div className='todo-list'>
