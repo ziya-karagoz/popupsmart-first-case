@@ -11,7 +11,7 @@ import { NewTodoModal } from "./components/NewTodoSession/NewTodoModal";
 import { Loading } from "./components/Loading/Loading";
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "loght");
 
   const [name, setName] = useState(localStorage.getItem("name") || "null");
 
