@@ -19,7 +19,7 @@ const customStyles = {
 };
 
 function NameSession({ name }) {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(true);
   let tempName;
 
   function openModal() {
@@ -35,18 +35,18 @@ function NameSession({ name }) {
   return (
     <>
       {" "}
-      {name != "null" ? null : (
+      {name !== "null" ? null : (
         <Modal
-          isOpen={true}
+          isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel='Example Modal'
         >
           <form className='name-form'>
-            <label htmlFor='nameInput'>İsminizi Giriniz</label>
+            <label htmlFor='nameInput'>Your Name</label>
             <input
-              placeholder='Örn: Ahmet'
+              placeholder='Example: Ahmet'
               required
               type='text'
               name='nameInput'
@@ -57,7 +57,7 @@ function NameSession({ name }) {
                 localStorage.setItem("name", tempName);
               }}
             >
-              Kaydet
+              Save
             </button>
           </form>
         </Modal>

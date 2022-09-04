@@ -1,5 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
-export const TodoList = () => {
-  return <div className='todo-container'>TodoList</div>;
+import { deleteTodo } from "../../api";
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { Loading } from "../Loading/Loading";
+export const TodoList = ({ list, refetchTodos }) => {
+  const handleDeleteTodoBtn = (e, id) => {
+    e.preventDefault();
+
+    deleteTodo(id).then((data) => {
+      console.log("silinen: ", data);
+      refetchTodos();
+    });
+  };
+
+  const handleEditTodoBtn = (e, id) => {
+    e.preventDefault();
+    console.log("edit todo: ", id);
+  };
+
+  return (
+    <div className='todo-container'>
+      <h1>
+        Todos
+        <hr />
+      </h1>
+      <div className='todo-list'>
+        {list.map((todo, idx) => {
+          return (
+            <div key={idx} className='todo-element'>
+              <p>{todo.content}</p>
+              <div className='todo-crud-btns'>
+                <form>
+                  <button onClick={(e) => handleDeleteTodoBtn(e, todo.id)}>
+                    <AiFillDelete size={25} color={"#4e9591"} />
+                  </button>
+                  <button onClick={(e) => handleEditTodoBtn(e, todo.id)}>
+                    <AiFillEdit size={25} color={"#4e9591"} />
+                  </button>
+                </form>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 };

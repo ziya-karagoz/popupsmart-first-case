@@ -4,11 +4,10 @@
   --text-color: #1f1f1e;
 }
 
-.App {
+.display {
   display: flex;
-  height: 100vh;
+  min-height: 90vh;
   justify-content: center;
-  align-items: center;
 }
 
 .dark {

@@ -1,29 +1,47 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useTodosData } from "./hooks/useTodosData";
 
-import { fetchTodos } from "./api";
 import { Navbar } from "./components/Navbar/Navbar";
 import NameSession from "./components/NameSession/NameSession";
+import { TodoList } from "./components/TodoLists/TodoList";
+import { CompletedTodoList } from "./components/TodoLists/Todolist.completed";
+import { NewTodoModal } from "./components/GettingTodoSession/NewTodoModal";
+import { Loading } from "./components/Loading/Loading";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const [name, setName] = useState(localStorage.getItem("name"));
 
-  const [todos, setTodos] = useState([]);
+  const onSuccess = (data) => {
+    console.log("Perform side effect after data fetching", data);
+  };
 
-  useEffect(() => {
-    // for fetchin todos from server
-    fetchTodos().then((data) => setTodos(data));
-    console.log(name);
-    localStorage.setItem("name", null);
-  }, []);
+  // React Query On Error Handler
+  const onError = (err) => {
+    console.log("Perform side effect after encountering error", err);
+  };
+  const { data, isError, isLoading, refetch } = useTodosData(
+    onSuccess,
+    onError
+  );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
       <Navbar setTheme={setTheme} userName={name} />
       <NameSession name={name} />
-      <div className={`App ${theme}`}></div>
+      <NewTodoModal refetchTodos={refetch} />
+      <div className={`display ${theme}`}>
+        <TodoList list={data[0]} refetchTodos={refetch} />
+        <CompletedTodoList refetchTodos={refetch} list={data[1]} />
+      </div>
+      <ReactQueryDevtools position='bottom-left' />
     </>
   );
 }

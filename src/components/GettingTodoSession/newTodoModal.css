@@ -1,0 +1,37 @@
+.add-todo-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  transition: all 0.2s ease-in-out;
+  padding: 1rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+.add-todo-btn:hover {
+  transform: scale(1.1);
+}
+
+.add-todo-form > * {
+  margin: 1rem 0;
+}
+.add-todo-form label {
+  font-size: 1.5rem;
+}
+.add-todo-form textarea {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add-todo-form button {
+  width: 100%;
+  padding: 0.3rem 0;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
