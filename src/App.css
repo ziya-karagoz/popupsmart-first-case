@@ -6,7 +6,7 @@
 
 .display {
   display: flex;
-  min-height: 90vh;
+  min-height: 90.1vh;
   justify-content: center;
 }
 
@@ -25,4 +25,10 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .display {
+    flex-direction: column;
+  }
 }
